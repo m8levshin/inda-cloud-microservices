@@ -15,17 +15,28 @@ services:
       - "27017:27017"
 
 
+  gateway:
+    build: gateway
+    ports:
+      - '80:8080'
+    depends_on:
+      - discovery
+    environment:
+      EUREKA_INSTANCE_PREFER_IP_ADDRESS: 'true'
+      SERVICE_URL_DEFAULT_ZONE: 'http://discovery:8761/eureka/'
+
+
   pc:
-      build: pc
-      ports:
-        - '8081:8080'
-      depends_on:
-        - discovery
-        - mongo
-      environment:
-        SPRING_DATA_MONGODB_HOST: mongo
-        EUREKA_INSTANCE_PREFER_IP_ADDRESS: 'true'
-        SERVICE_URL_DEFAULT_ZONE: 'http://discovery:8761/eureka/'
+    build: pc
+    ports:
+      - '8081:8080'
+    depends_on:
+      - discovery
+      - mongo
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongo
+      EUREKA_INSTANCE_PREFER_IP_ADDRESS: 'true'
+      SERVICE_URL_DEFAULT_ZONE: 'http://discovery:8761/eureka/'
 
 
   po:

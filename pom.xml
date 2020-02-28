@@ -25,6 +25,7 @@
         <module>pc</module>
         <module>po</module>
         <module>discovery</module>
+        <module>gateway</module>
     </modules>
 
     <dependencies>
