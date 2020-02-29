@@ -5,3 +5,15 @@ server:
 spring:
   application:
     name: gateway
+
+
+zuul:
+  routes:
+    pc:
+      serviceId: pc
+      path: /pc/*
+      stripPrefix: true
+    po:
+      serviceId: po
+      path: /po/*
+      stripPrefix: true
