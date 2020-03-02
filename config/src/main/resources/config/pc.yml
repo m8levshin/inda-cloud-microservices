@@ -1,10 +1,10 @@
 server:
-  port: 8082
+  port: 8081
 
 
 spring:
   application:
-    name: po
+    name: pc
   data:
     mongodb:
-      host: docker:27017
+      host: localhost

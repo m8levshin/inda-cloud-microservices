@@ -12,7 +12,6 @@ public class GatewayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
-        String[] strings = new String[2];
     }
 
 }
